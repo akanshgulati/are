@@ -1,6 +1,6 @@
 {
   "name": "@akanshgulati/are",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/are.cjs.js",
   "module": "dist/are.esm.js",
   "browser": "dist/are.umd.js",
