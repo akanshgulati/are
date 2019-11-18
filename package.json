@@ -1,0 +1,30 @@
+{
+  "name": "are-util",
+  "version": "1.0.0",
+  "main": "dist/are.cjs.js",
+  "module": "dist/are.esm.js",
+  "browser": "dist/are.umd.js",
+  "dependencies": {
+    "ms": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "ava": "^2.4.0",
+    "nyc": "^14.1.1",
+    "rollup": "^1.0.0",
+    "rollup-plugin-babel": "^4.2.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "pretest": "npm run build",
+    "test": "ava test/* --watch",
+    "coverage": "nyc ava"
+  },
+  "files": [
+    "dist"
+  ]
+}
