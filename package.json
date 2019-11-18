@@ -20,7 +20,7 @@
     "build": "del dist && rollup -c",
     "dev": "rollup -c -w",
     "pretest": "npm run build",
-    "test": "ava test/* --watch",
+    "test": "ava test/*",
     "coverage": "nyc ava",
     "prepublishOnly": "npm run build"
   },
