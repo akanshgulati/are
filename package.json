@@ -1,12 +1,10 @@
 {
-  "name": "are-util",
+  "name": "@akanshgulati/are",
   "version": "1.0.0",
   "main": "dist/are.cjs.js",
   "module": "dist/are.esm.js",
   "browser": "dist/are.umd.js",
-  "dependencies": {
-    "ms": "^2.0.0"
-  },
+  "private": false,
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
@@ -18,13 +16,44 @@
     "rollup-plugin-node-resolve": "^4.0.0"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "del dist && rollup -c",
     "dev": "rollup -c -w",
     "pretest": "npm run build",
     "test": "ava test/* --watch",
-    "coverage": "nyc ava"
+    "coverage": "nyc ava",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "description": "A utility for type checking elements on an array.  The library is inspired from chai framework supporting chaining to combine multiple operations.",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akanshgulati/are.git"
+  },
+  "keywords": [
+    "type",
+    "types",
+    "are",
+    "check",
+    "checking",
+    "validating",
+    "validate",
+    "utility",
+    "util",
+    "type-checking"
+  ],
+  "author": {
+    "name": "Akansh Gulati",
+    "email": "me@akansh.com",
+    "url": "akansh.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akanshgulati/are/issues"
+  },
+  "homepage": "https://github.com/akanshgulati/are#readme"
 }
