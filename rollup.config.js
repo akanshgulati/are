@@ -1,5 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import { terser } from "rollup-plugin-terser";
 import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 
@@ -13,11 +14,18 @@ export default [
 			format: 'umd'
 		},
 		plugins: [
-			resolve(), // so Rollup can find `ms`
-			commonjs(), // so Rollup can convert `ms` to an ES module
 			babel({
 				exclude: ['node_modules/**']
-			})
+			}),
+			resolve(), // so Rollup can find `ms`
+			commonjs(), // so Rollup can convert `ms` to an ES module
+			(process.env.NODE_ENV === 'production' && terser({
+				output: {
+					comments: false
+				},
+				compress: true,
+				mangle: true
+			}))
 		]
 	},
 
@@ -36,8 +44,15 @@ export default [
 		],
 		plugins: [
 			babel({
-				exclude: ['node_modules/**']
-			})
+				exclude: ['node_modules/**'],
+			}),
+			(process.env.NODE_ENV === 'production' && terser({
+				output: {
+					comments: false
+				},
+				compress: true,
+				mangle: true
+			}))
 		]
 	}
 ];
