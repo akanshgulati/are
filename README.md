@@ -46,14 +46,21 @@ true/false: Boolean
 .boolean()
 .object()
 .array()
-.type(<value>) // value can be "string", "number", "boolean", "array", "object"
+.type(<value>) - value can be "string", "number", "boolean", "array", "object"
 ```
 
 ### Helpers
-**.all** // checks for all elements of array (default)
+```
+.all - checks for all elements (default)
+.any - checks for all elements of array
+.first - check for first element
+.last - check for last element
+.middle - check for middle element(s)
+.not - checks for opposite, e.g. (.not.any => .all)
+```
 
 
-### Checking for all elements of array
+### Check all elements (default)
 
  - `Are(ARRAY).of.type(value)` // custom('string', 'number', 'object', 'boolean', 'array')
  - `Are(ARRAY).of.number()` or `Are(ARRAY).of.number()` or `Are(ARRAY).all.of.number()`
@@ -61,7 +68,7 @@ true/false: Boolean
  - `Are(ARRAY).of.string()` or - `Are(ARRAY).of.string()` or - `Are(ARRAY).all.of.string()`
  - `Are(ARRAY).of.boolean()` or - `Are(ARRAY).of.boolean()` or - `Are(ARRAY).all.of.boolean()`
 
-### Checking for one element of array
+### Check one element
 
 - `Are(ARRAY).any.of.type(value)` // custom('string', 'number', 'object', 'boolean', 'array')
 - `Are(ARRAY).any.of.number()`
@@ -69,7 +76,7 @@ true/false: Boolean
 - `Are(ARRAY).any.of.string()`
 - `Are(ARRAY).any.of.boolean()`
 
-### Checking at a particular location
+### Check at particular index
 
 - `Are(ARRAY).middle.of.type(value)` // checks for (n-1)/2 index in case of odd and (n-1)/2 and n/2 indexes in case even
 - `Are(ARRAY).first.of.type(value)` // checks for 0th index for type value
@@ -78,7 +85,7 @@ true/false: Boolean
 - `Are(ARRAY).first.of.not.type(value)` // checks only for 0th index for `not` to be of type value
 
 
-### Nested Array
+### Check in nested array
 - `Are(ARRAY).flat.of.type(value)` // flatten array to same root and then checks for all elements for type value
 
 ### Negation
