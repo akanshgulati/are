@@ -1,8 +1,23 @@
-# Are [![Build Status](https://travis-ci.com/akanshgulati/are.svg?branch=master)](https://travis-ci.com/akanshgulati/are) [![npm version](https://badge.fury.io/js/%40akanshgulati%2Fare.svg)](https://badge.fury.io/js/%40akanshgulati%2Fare)
-A utility for type checking and searching element on an array of element(s).   
-The pattern is inspired from `expect.js` framework supporting **chaining** to combine multiple operations.  
-  
-> e.g. Are([1, {}, "string", $]).any.of.number() //=> returns true  
+<p>
+    <h1 hidden>Are</h1>
+</p>
+<p align="center">
+    <img src="docs/banner.jpg" alt="Are NPM package for type check array">
+</p>
+<p align="center">
+    A type checking utility for element(s) of an Array based on <strong>chaining</strong> flow to combine multiple operations.
+</p>
+ 
+<p align="center">
+    <img src="https://img.shields.io/travis/akanshgulati/are?color=green&style=flat-square" alt="Build Status"/>
+    <img src="https://img.shields.io/npm/v/@akanshgulati/are?style=flat-square&color=red" alt="NPM Version"/>
+    <a href="https://twitter.com/akanshgulati">
+        <img src="https://img.shields.io/twitter/follow/akanshgulati?label=Twitter%20%40akanshgulati&style=flat-square&color=blue" alt="Twitter followers"/>
+    </a>
+
+</p>
+
+<hr/>
 
 <br>
 
