@@ -1,36 +1,39 @@
 import {getSelection, flatArray, convertToType} from "../lib/util"
 import Flag from "../lib/Flag"
-import Types from "../lib/TypesConstant"
+import {SelectionType, InputType, ArrayType, NumberType, BooleanType} from "../lib/TypesConstant"
 import ErrorEnum from "../lib/ErrorEnum"
-const SelectionType = Types.SelectionType;
 
 class _Are {
     constructor(values) {
         // make deep copy of the values in order to not impact the original value
-        this.values = JSON.parse(JSON.stringify(values));
+        this.values = [...values];
         this.length = values.length;
         this._flag = new Flag();
     }
 
-    type(type) {
+    type(type, isCustomString = true) {
         if (!type) {
             throw new Error(ErrorEnum.INVALID_PARAMETERS);
         }
-        // checking type in case it's not in proper format
-        if (type.charAt(0) !== '[' || type.substr(-1) !== ']') {
+        if (isCustomString) {
+            // checking type in case it's not in proper format
+            if (type.charAt(0) === '[' && type.substr(-1) === ']') {
+                type = type.slice(8, -1);
+            }
             type = convertToType(type);
         }
         const info = getSelection.call(this);
         let result;
+        
         // when any particular set of indexes are to be checked
         // case when "last", "middle", "first", etc. position are selected
         if (info.indexes && info.indexes.length) {
             result = info.indexes.some(index => {
-                return info.method(Object.prototype.toString.call(this.values[index]), type);
+                return info.method(this.values[index], type);
             })
         } else {
             result = this.values.some((item) => {
-                return info.method(Object.prototype.toString.call(item), type);
+                return info.method(item, type);
             });
         }
 
@@ -38,27 +41,124 @@ class _Are {
     }
 
     string() {
-        return this.type('[object String]');
+        return this.type(InputType.STRING);
     }
 
     number() {
-        return this.type("[object Number]");
+        return this.type(InputType.NUMBER, false);
     }
 
     array() {
-        return this.type("[object Array]");
+        return this.type(InputType.ARRAY, false);
     }
 
     boolean() {
-        return this.type("[object Boolean]");
+        return this.type(InputType.BOOLEAN, false);
     }
 
     null() {
-        return this.type("[object Null]");
+        return this.type(InputType.NULL, false);
     }
 
     undefined() {
-        return this.type("[object Undefined]");
+        return this.type(InputType.UNDEFINED, false);
+    }
+    
+    date() {
+        return this.type(InputType.DATE, false);
+    }
+// ARRAY TYPE CHECKING
+    int8Array(){
+        return this.type(ArrayType.INT_8_ARRAY, false);
+    }
+    uint8Array() {
+        return this.type(ArrayType.UNIT_8_ARRAY, false);
+    }
+    uint8ClampedArray() {
+        return this.type(ArrayType.UNIT_8_CLAMPED_ARRAY, false);
+    }
+    int16Array() {
+        return this.type(ArrayType.INT_16_ARRAY, false);
+    }
+    uint16Array() {
+        return this.type(ArrayType.UNIT_16_ARRAY, false);
+    }
+    int32Array() {
+        return this.type(ArrayType.INT_32_ARRAY, false);
+    }
+    uint32Array() {
+        return this.type(ArrayType.UNIT_32_ARRAY, false);
+    }
+    float32Array() {
+        return this.type(ArrayType.FLOAT_32_ARRAY, false);
+    }
+    float64Array() {
+        return this.type(ArrayType.FLOAT_64_ARRAY, false);
+    }
+    bigInt64Array() {
+        return this.type(ArrayType.BIG_INT_64_ARRAY, false);
+    }
+    bigUint64Array() {
+        return this.type(ArrayType.BIG_UNIT_64_ARRAY, false);
+    }
+    dateView() {
+        return this.type(ArrayType.DATEVIEW, false);
+    }
+    arrayBuffer() {
+        return this.type(ArrayType.ARRAY_BUFFER, false);
+    }
+    sharedArrayBuffer() {
+        return this.type(ArrayType.SHARED_ARRAY_BUFFER, false);
+    }
+    
+    // number type
+    integer() {
+        return this.type(NumberType.INTEGER, false);
+    }
+
+    safeInteger() {
+        return this.type(NumberType.SAFE_INTEGER, false);
+    }
+
+    finite() {
+        return this.type(NumberType.FINITE, false);
+    }
+
+    infinite() {
+        return this.type(NumberType.INFINITE, false);
+    }
+    
+    wholeNumber() {
+        return this.type(NumberType.WHOLE_NUMBER, false);
+    }
+
+    positiveNumber() {
+        return this.type(NumberType.POSITIVE_NUMBER, false);
+    }
+    
+    negativeNumber() {
+        return this.type(NumberType.NEGATIVE_NUMBER, false);
+    }
+
+    zero() {
+        return this.type(NumberType.ZERO, false);
+    }
+    
+    decimal() {
+        return this.type(NumberType.DECIMAL, false);
+    }
+    
+    float() {
+        return this.type(NumberType.FLOAT, false);
+    }
+    
+    // boolean type
+    truthy() {
+        return this.type(BooleanType.TRUTHY, false);
+    }
+
+    falsy() {
+        return this.type(BooleanType.FALSY, false);
     }
 
     // position related
@@ -103,7 +203,7 @@ class _Are {
         return this;
     }
     get flatten() {
-        this.flat();
+        this.values = flatArray(this.values);
         return this;
     }
 }
