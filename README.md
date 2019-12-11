@@ -1,9 +1,26 @@
-# Are [![Build Status](https://travis-ci.com/akanshgulati/are.svg?branch=master)](https://travis-ci.com/akanshgulati/are) [![npm version](https://badge.fury.io/js/%40akanshgulati%2Fare.svg)](https://badge.fury.io/js/%40akanshgulati%2Fare)
+<div style="opacity:0">
+    <h1>ARE</h1>
+</div>
+
+<p align="center">
+
+![Are NPM package for type check array](docs/banner.jpg)
+
+</p>
+<p align="center">
 
 A type checking utility for element(s) of an Array based on **chaining** flow to combine multiple operations.
-  
-> e.g. Are([1, {}, "string", $]).any.of.number() //=> returns true  
+</p>
+ 
+<p align="center">
 
+![Build Status](https://img.shields.io/travis/akanshgulati/are?color=green&style=flat-square)
+![npm (scoped)](https://img.shields.io/npm/v/@akanshgulati/are?style=flat-square&color=red)
+![Vulnerabilities for are package](https://img.shields.io/snyk/vulnerabilities/npm/@akanshgulati/are?style=flat-square&color=purple)
+![Twitter Follow](https://img.shields.io/twitter/follow/akanshgulati?label=Twitter%20%40akanshgulati&style=flat-square&color=blue)
+
+</p>
+<hr>
 <br>
 
 ## 🚀 Installation  
