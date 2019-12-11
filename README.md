@@ -99,8 +99,6 @@ WholeNumber
 PositiveNumber  
 NegativeNumber  
 Zero  
-Falsy  
-Truthy
 ```
 
 **Boolean types**
@@ -109,7 +107,7 @@ Falsy
 Truthy
 ```
 
-### Other methods
+### Built-in methods
 
 #### .string()  
 #### .number()  
