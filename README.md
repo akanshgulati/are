@@ -5,7 +5,7 @@
     <img src="docs/banner.jpg" alt="Are NPM package for type check array">
 </p>
 <p align="center">
-    A type checking utility for element(s) of an Array based on **chaining** flow to combine multiple operations.
+    A type checking utility for element(s) of an Array based on <strong>chaining<strong> flow to combine multiple operations.
 </p>
  
 <p align="center">
