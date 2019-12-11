@@ -11,7 +11,9 @@
 <p align="center">
     <img src="https://img.shields.io/travis/akanshgulati/are?color=green&style=flat-square" alt="Build Status"/>
     <img src="https://img.shields.io/npm/v/@akanshgulati/are?style=flat-square&color=red" alt="NPM Version"/>
-    <img src="https://img.shields.io/twitter/follow/akanshgulati?label=Twitter%20%40akanshgulati&style=flat-square&color=blue" alt="Twitter followers"/>
+    <a href="https://twitter.com/akanshgulati">
+        <img src="https://img.shields.io/twitter/follow/akanshgulati?label=Twitter%20%40akanshgulati&style=flat-square&color=blue" alt="Twitter followers"/>
+    </a>
 
 </p>
 
