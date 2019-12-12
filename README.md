@@ -60,7 +60,7 @@ Are([[[[[[[[[1]]]]]]]]]).flat.of.number();
 Helps in selected a particular set of an array and negative of the current type-check
 ```  
 .all - checks for all elements (default)  
-.any - checks for all elements of array  
+.any - checks for any one element
 .first - check for first element  
 .last - check for last element  
 .middle - check for middle element(s)
@@ -71,7 +71,7 @@ Helps in selected a particular set of an array and negative of the current type-
 ### Types 
 
 #### .type(\<value>)
-The value needs to be in Pascal case (e.g. NaturalNumbers) or Underscore separated (e.g. natural_number)
+The value needs to be in Pascal case (e.g. NaturalNumber) or Underscore separated (e.g. natural_number)
 
 **Primitive types**
 ```
